@@ -49,7 +49,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: task_list_production
   username: task_list
   password: <%= ENV['TASK_LIST_DATABASE_PASSWORD'] %>
