@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user =User.find(params[:id])
+    @pagy, @tasks = pagy(@user.tasks.order(id: :desc))
+    counts(@user)
   end
 
   def new
@@ -13,11 +15,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = user.new(user_params)
+    @user = User.new(user_params)
     
     if @user.save
-      flash[:success] = "ユーザーが登録しました。"
-      redeirect_to @user
+      flash[:success] = "ユーザーを登録しました。"
+      redirect_to @user
     else
       flash.now[:danger] = "ユーザーの登録に失敗しました。"
       render :new
