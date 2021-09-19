@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:destroy, :update]
   before_action :set_task, only: [:show,  :edit, :update, :destroy]
   def index
          @tasks = Task.all
@@ -16,7 +16,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    
        @task = current_user.tasks.build(task_params)
     if @task.save
       flash[:success] = 'task が正常に投稿されました'
@@ -34,7 +33,6 @@ class TasksController < ApplicationController
 
   def update
      binding.pry
-
    if @task.update(task_params)
       flash[:sucess] ='task は正常に更新されました'
       redirect_to root_url
