@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:destroy, :update, :show, :edit]
   
   def index
-         @tasks = Task.all
+         
          @pagy, @tasks = pagy(current_user.tasks.order(id: :desc))
   end
 
