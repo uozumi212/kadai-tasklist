@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @user =User.find(params[:id])
     @pagy, @tasks = pagy(@user.tasks.order(id: :desc))
    
-    
   end
 
   def new
