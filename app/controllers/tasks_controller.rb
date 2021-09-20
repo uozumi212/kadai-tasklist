@@ -3,7 +3,6 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:destroy, :update, :show, :edit]
   
   def index
-         
          @pagy, @tasks = pagy(current_user.tasks.order(id: :desc))
   end
 
@@ -32,7 +31,7 @@ class TasksController < ApplicationController
   end
 
   def update
-     binding.pry
+     
    if @task.update(task_params)
       flash[:sucess] ='task は正常に更新されました'
       redirect_to root_url
