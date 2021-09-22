@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :correct_user, only: [:destroy, :update, :show, :edit]
   
   def index
-         @pagy, @tasks = pagy(current_user.tasks.order(id: :desc))
+        @pagy,@tasks = pagy(current_user.tasks.order(id: :desc))
   end
 
   def show
@@ -56,7 +56,7 @@ class TasksController < ApplicationController
   end
   
   def correct_user
-    @task = current_user.tasks.find_by(params[:id])
+    @task = current_user.tasks.find_by(id: params[:id])
     unless @task
       redirect_to root_url
     end
