@@ -3,8 +3,8 @@ class UsersController < ApplicationController
    
   
   def show
-    @user = User.find(params[:id])
-    @pagy = pagy(@user.tasks.order(id: :desc))
+    
+    @pagy,@task = pagy(@user.tasks.order(id: :desc))
 
   end
 
