@@ -3,7 +3,7 @@ class UsersController < ApplicationController
    
   
   def show
-    @pagy = pagy(@user.order(id: :desc))
+    
 
   end
 
