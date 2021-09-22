@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     
-    @pagy = pagy(@user.tasks.order(id: :desc))
+    @pagy, @tasks = pagy(@user.tasks.order(id: :desc))
 
   end
 
